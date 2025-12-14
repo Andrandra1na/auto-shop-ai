@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+
+# Variables d'environnement (TRÈS IMPORTANT)
+.env
+.env.local
+
+# Base de données locale (si on n'utilise pas docker au début)
+*.sqlite3
+
+# Docker
+.docker/
+
+# IDE
+.vscode/
+.idea/
+
+# Fichiers Système
+.DS_Store
