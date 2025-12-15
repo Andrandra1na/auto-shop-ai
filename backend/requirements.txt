@@ -8,3 +8,7 @@ python-multipart
 python-dotenv
 requests
 cloudinary
+rembg
+pillow
+numpy
+onnxruntime  # Moteur d'inférence rapide pour l'IA
