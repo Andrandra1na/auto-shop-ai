@@ -32,6 +32,17 @@ services:
     depends_on:
       db:
         condition: service_healthy # Attend que la DB soit prête avant de se lancer
+  
+
+  frontend:
+    build: ./frontend
+    container_name: autoshop_frontend
+    volumes:
+      - ./frontend:/app 
+    ports:
+      - "8501:8501" 
+    depends_on:
+      - backend 
 
 volumes:
   postgres_data:
