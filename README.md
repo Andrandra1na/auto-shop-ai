@@ -40,7 +40,7 @@ git clone https://github.com/VOTRE_NOM/auto-shop-ai.git
 
 cd auto-shop-ai
 
-2. Configuration
+### 2. Configuration
 
 Créez un fichier .env à la racine :
 
@@ -67,11 +67,11 @@ OPENROUTER_API_KEY=votre_cle_openrouter
 
 OPENROUTER_MODEL=meta-llama/llama-3.1-8b-instruct
 
-3. Lancer l'application
+### 3. Lancer l'application
 
 docker-compose up --build -d
 
-4. Accès
+### 4. Accès
 
 Interface Utilisateur : http://localhost:8501
 
