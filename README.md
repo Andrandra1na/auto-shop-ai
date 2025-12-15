@@ -37,6 +37,7 @@ Le projet suit une architecture micro-services conteneurisée :
 ### 1. Cloner le projet
 
 git clone https://github.com/VOTRE_NOM/auto-shop-ai.git
+
 cd auto-shop-ai
 
 2. Configuration
@@ -60,11 +61,7 @@ OPENROUTER_API_KEY=votre_cle_openrouter
 OPENROUTER_MODEL=meta-llama/llama-3.1-8b-instruct:free
 
 3. Lancer l'application
-code
-Bash
-download
-content_copy
-expand_less
+
 docker-compose up --build -d
 
 4. Accès
