@@ -9,6 +9,10 @@ class Settings(BaseSettings):
     POSTGRES_SERVER: str
     POSTGRES_PORT: str
     POSTGRES_DB: str
+    
+    CLOUDINARY_CLOUD_NAME: str
+    CLOUDINARY_API_KEY: str
+    CLOUDINARY_API_SECRET: str
 
     @property
     def SQLALCHEMY_DATABASE_URI(self) -> str:
