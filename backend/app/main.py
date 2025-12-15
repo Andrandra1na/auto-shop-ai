@@ -1,4 +1,9 @@
 from fastapi import FastAPI
+from app.db.session import engine, Base
+from app.db import models 
+
+# Création automatique des tables dans la DB au démarrage
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Auto-Shop AI API",
@@ -8,4 +13,4 @@ app = FastAPI(
 
 @app.get("/")
 async def root():
-    return {"message": "Auto-Shop AI API is running", "status": "ok"}
+    return {"message": "Auto-Shop AI API is running", "db_status": "connected"}
