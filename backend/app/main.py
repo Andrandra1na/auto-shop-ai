@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from app.db.session import engine, Base
-from app.db import models 
+from app.api.v1.endpoints import products 
 
-# Création automatique des tables dans la DB au démarrage
+# Création des tables
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
@@ -10,6 +10,9 @@ app = FastAPI(
     description="API d'automatisation e-commerce alimentée par l'IA.",
     version="1.0.0"
 )
+
+
+app.include_router(products.router, prefix="/api/v1/products", tags=["Products"])
 
 @app.get("/")
 async def root():
