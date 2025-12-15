@@ -12,3 +12,4 @@ rembg
 pillow
 numpy
 onnxruntime  # Moteur d'inférence rapide pour l'IA
+openai

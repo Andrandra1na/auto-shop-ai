@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from app.db.session import get_db
 from app.db import models
 from app.schemas import product as schemas
-from app.services import storage, vision 
+from app.services import storage, vision, llm
 
 router = APIRouter()
 
@@ -16,25 +16,24 @@ async def process_product_image(
         raise HTTPException(status_code=400, detail="Le fichier doit être une image.")
 
     try:
-        # 1. Lire le fichier en mémoire (bytes)
         file_content = await file.read()
 
-        # 2. Upload de l'image ORIGINALE (Raw)
         original_url = storage.upload_image_to_cloud(file_content, f"raw_{file.filename}")
         
-        # 3. TRAITEMENT IA (Détourage)
-        # On passe les bytes à notre service d'IA
         processed_content = vision.remove_background(file_content)
         
         clean_filename = f"clean_{file.filename.split('.')[0]}.png"
         processed_url = storage.upload_image_to_cloud(processed_content, clean_filename)
         
+        
+        generated_description = await llm.generate_product_description(file.filename)
+        
         new_product = models.Product(
             filename=file.filename,
             original_image_url=original_url,
-            processed_image_url=processed_url, 
-            tags=None,
-            description=None
+            processed_image_url=processed_url,
+            tags=None, 
+            description=generated_description 
         )
         
         db.add(new_product)

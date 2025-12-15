@@ -13,6 +13,9 @@ class Settings(BaseSettings):
     CLOUDINARY_CLOUD_NAME: str
     CLOUDINARY_API_KEY: str
     CLOUDINARY_API_SECRET: str
+    
+    OPENROUTER_API_KEY: str
+    OPENROUTER_MODEL: str = "meta-llama/llama-3.1-8b-instruct"
 
     @property
     def SQLALCHEMY_DATABASE_URI(self) -> str:
