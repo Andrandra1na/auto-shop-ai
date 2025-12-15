@@ -46,19 +46,26 @@ Créez un fichier .env à la racine :
 
 # Base de données
 POSTGRES_USER=autoshop_admin
+
 POSTGRES_PASSWORD=secure_password
+
 POSTGRES_DB=autoshop_db
+
 POSTGRES_SERVER=db
+
 POSTGRES_PORT=5432
 
 # Cloudinary (Stockage Images)
 CLOUDINARY_CLOUD_NAME=votre_cloud_name
+
 CLOUDINARY_API_KEY=votre_api_key
+
 CLOUDINARY_API_SECRET=votre_api_secret
 
 # OpenRouter (IA Texte)
 OPENROUTER_API_KEY=votre_cle_openrouter
-OPENROUTER_MODEL=meta-llama/llama-3.1-8b-instruct:free
+
+OPENROUTER_MODEL=meta-llama/llama-3.1-8b-instruct
 
 3. Lancer l'application
 
