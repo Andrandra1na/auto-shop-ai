@@ -7,17 +7,38 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-Frontend-FF4B4B?logo=streamlit&logoColor=white)
 
 > **L'assistant intelligent pour l'automatisation E-commerce.**
-> Transformez des photos produits brutes en fiches produits professionnelles en quelques secondes grâce à l'IA Générative.
+> Transformez des photos produits brutes en fiches produits professionnelles (Image détourée + Texte SEO) en quelques secondes.
+
+---
+
+## 📸 Aperçu de l'interface
+
+![Interface Auto-Shop AI](assets/demo_screenshot.png)
 
 ---
 
 ## 🚀 Fonctionnalités
 
 *   **Détourage Automatique (Computer Vision) :** Suppression de l'arrière-plan avec précision grâce au modèle `U2Net` (via `rembg`).
-*   **Rédaction SEO (GenAI) :** Génération automatique de descriptions marketing vendeuses basées sur le produit, propulsée par **LLaMA 3.1** (via OpenRouter).
+*   **Rédaction SEO (GenAI) :** Génération automatique de descriptions marketing vendeuses basées sur le contexte du produit, propulsée par **LLaMA 3.1** (via OpenRouter).
 *   **Stockage Cloud :** Hébergement sécurisé et optimisé des images via **Cloudinary**.
 *   **Base de Données :** Persistance de tous les produits traités dans **PostgreSQL**.
-*   **Interface Moderne :** Dashboard interactif développé avec **Streamlit** (Support du Drag & Drop, Bulk Upload, Téléchargement).
+*   **Interface Moderne :** Dashboard interactif développé avec **Streamlit** (Support du Bulk Upload, Téléchargement direct).
+
+---
+
+## 💡 Comment obtenir les meilleurs résultats ?
+
+Le système utilise une combinaison de Vision par Ordinateur et d'IA Générative Textuelle.
+
+1.  **Pour le Détourage (Vision) :** Privilégiez des photos où l'objet est bien contrasté par rapport au fond.
+2.  **Pour la Description (Texte) :** L'IA utilise actuellement le **nom du fichier** comme contexte principal pour la génération.
+    *   ❌ **À éviter :** `IMG_4829.jpg`, `DSC001.png` (L'IA inventera une description).
+    *   ✅ **Recommandé :** `baskets_nike_rouge_running.jpg`, `sac_cuir_luxe_noir.png`.
+    
+    > *Renommez simplement vos fichiers avant l'upload pour guider l'IA et obtenir une description parfaitement pertinente.*
+
+---
 
 ## 🏗️ Architecture Technique
 
@@ -35,7 +56,6 @@ Le projet suit une architecture micro-services conteneurisée :
 *   Clés API (Cloudinary & OpenRouter)
 
 ### 1. Cloner le projet
-
 git clone https://github.com/VOTRE_NOM/auto-shop-ai.git
 
 cd auto-shop-ai
